@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title>Home Aplikasi</ion-title>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content>
+  <hr>
+  Selamat datang {{ nama }}
+  <hr>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Tarik Untuk Memuat Data"
+    refreshingSpinner="circles" refreshingText="Memuat Ulang Data...">
+    </ion-refresher-content>
+    </ion-refresher>
+    <hr>
+    <ion-card>
+    <ion-button color="success" expand="block" [routerLink]="['/buku-tambah']"> Tambah Buku </ion-button>
+    </ion-card>
+    <hr>
+    <ion-card *ngFor="let item of lists">
+    <ion-item>
+    <ion-label>
+    {{item.id}}
+    <p>{{item.nama_buku}}</p>
+    <p>{{item.genre_buku}}</p>
+    </ion-label>
+    <ion-button color="primary" slot="end" [routerLink]="['/buku-edit/',item.id]"
+    routerLinkActive="router-link-active">Edit</ion-button>
+    <ion-button color="danger" slot="end" (click)="deletebuku(item.id)">Hapus</ion-button>
+    </ion-item>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="circles" loadingText="Sedang Memuat Data...">
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  <ion-item>
+    </ion-item>
+    <ion-item (click)="logout()">
+      <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
+      <ion-label>Logout</ion-label>
+      </ion-item>
+ </ion-content>

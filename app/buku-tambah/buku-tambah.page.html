@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title>Tambah Buku</ion-title>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-title size="large">
+  Tambah Buku
+  </ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+  <ion-item>
+  <ion-label position="floating">Nama Buku</ion-label>
+  <ion-input required [(ngModel)]="nama_buku" placeholder="Masukkan Nama Buku" type="text">
+  </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label position="floating">Genre Buku</ion-label>
+  <ion-input required [(ngModel)]="genre_buku" placeholder="Masukkan Genre Buku" type="text">
+  </ion-input>
+  </ion-item>
+  <ion-row>
+  <ion-col>
+  <ion-button type="button" (click)="addbuku()" color="primary" shape="full" expand="block">Tambah 
+ Matakuliah
+  </ion-button>
+  </ion-col>
+  </ion-row>
+  </ion-list>
+ </ion-content>
+ 
